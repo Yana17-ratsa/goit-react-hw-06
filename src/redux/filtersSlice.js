@@ -9,15 +9,7 @@ const slice = createSlice({
   },
   reducers: {
     changeFilter: (state, action) => {
-      // state.name.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase());
-      if (
-        state.name
-          .toLocaleLowerCase()
-          .includes(action.payload.toLocaleLowerCase())
-      ) {
-        state.name = action.payload;
-      }
-      //   state.name = action.payload;
+      state.name = action.payload;
     },
   },
 });
