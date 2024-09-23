@@ -1,20 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-export const selectNameFilter   = (state) => state.filters.name;
+export const selectNameFilter = (state) => state.filters.name;
 
 const slice = createSlice({
-    name: "filters",
-    initialState: {
-        name: "",
+  name: 'filters',
+  initialState: {
+    name: '',
+  },
+  reducers: {
+    changeFilter: (state, action) => {
+      // state.name.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase());
+      if (
+        state.name
+          .toLocaleLowerCase()
+          .includes(action.payload.toLocaleLowerCase())
+      ) {
+        state.name = action.payload;
+      }
+      //   state.name = action.payload;
     },
-    reducers: {
-        changeFilter: (state, action) => {
-                state.name.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase());
-        },
-
-    },
-})
+  },
+});
 
 export const { changeFilter } = slice.actions;
 
-export default slice.reducer;   
+export default slice.reducer;
